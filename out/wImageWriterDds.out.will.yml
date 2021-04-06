@@ -2,19 +2,16 @@ format: outwillfile-2.0
 root:
   - wImageWriterDds.out
 consistency:
-  wImageWriterDds.out.will.yml: &ref_0
-    hash: 6b009181e5a7d0521b5e10a83ee18f2c
-    size: 44477
-  ../.ex.will.yml: &ref_1
-    hash: 42c869ff014ea522f234c0ee86ee4fba
+  ../.ex.will.yml: &ref_0
+    hash: af609a1e9a801806bc74a473540b3472
     size: 1703
-  ../.im.will.yml: &ref_2
+  ../.im.will.yml: &ref_1
     hash: e291976046cbe36e75873a6b4c84869b
     size: 4688
-  ../.module/wTools.will.yml: &ref_3
+  ../.module/wTools.will.yml: &ref_6
     hash: 37a17317399d4996e880f991273c128f
     size: 520
-  ../.module/wTools/wTools.out.will.yml: &ref_4
+  ../.module/wTools/wTools.out.will.yml: &ref_7
     hash: ef587e456e157ae5ff6cc059cb8b00a4
     size: 6835
 module:
@@ -23,21 +20,21 @@ module:
       name: wImageWriterDds
       org: noorg
       description: ___
-      enabled: 0
+      enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wimagewriterdds
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -688,24 +685,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -794,31 +773,22 @@ module:
           content: proto
           export: 1
     consistency:
-      wImageWriterDds.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wImageWriterDds
       org: noorg
       description: ___
-      enabled: 0
+      enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wimagewriterdds
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -1471,12 +1441,11 @@ module:
           - 'build::npm'
     consistency:
       ../.ex.will.yml:
-        hash: 42c869ff014ea522f234c0ee86ee4fba
+        hash: af609a1e9a801806bc74a473540b3472
         size: 1703
       ../.im.will.yml:
         hash: e291976046cbe36e75873a6b4c84869b
         size: 4688
-      wImageWriterDds.out.will.yml: *ref_0
   ../.module/wTools:
     about:
       name: wTools
@@ -1544,8 +1513,8 @@ module:
           default: 1
           export: 1
     consistency:
-      ../.module/wTools.will.yml: *ref_3
-      ../.module/wTools/wTools.out.will.yml: *ref_4
+      ../.module/wTools.will.yml: *ref_6
+      ../.module/wTools/wTools.out.will.yml: *ref_7
   ../.module/wTools/wTools.out:
     about:
       name: wTools
