@@ -1,7 +1,7 @@
 submodule:
   wTools:
     path: 'npm:///wTools'
-    enabled: 0
+    enabled: 1
   eslint:
     path: 'npm:///eslint#7.1.0'
     enabled: 0
@@ -63,7 +63,7 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - proto/wtools/Tools.s
+    - proto/node_modules/Tools
     - proto/node_modules/wimagewriterdds
 reflector:
   reflect.proto:
