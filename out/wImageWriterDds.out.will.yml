@@ -6,14 +6,8 @@ consistency:
     hash: af609a1e9a801806bc74a473540b3472
     size: 1703
   ../.im.will.yml: &ref_1
-    hash: e291976046cbe36e75873a6b4c84869b
+    hash: f4627da3d323c2594583f08aeaf718f8
     size: 4688
-  ../.module/wTools.will.yml: &ref_6
-    hash: 37a17317399d4996e880f991273c128f
-    size: 520
-  ../.module/wTools/wTools.out.will.yml: &ref_7
-    hash: ef587e456e157ae5ff6cc059cb8b00a4
-    size: 6835
 module:
   wImageWriterDds.out:
     about:
@@ -171,7 +165,7 @@ module:
       wTools:
         path: 'npm:///wTools'
         autoExporting: 0
-        enabled: 1
+        enabled: 0
       eslint:
         path: 'npm:///eslint#7.1.0'
         autoExporting: 0
@@ -902,7 +896,7 @@ module:
       wTools:
         path: 'npm:///wTools'
         autoExporting: 0
-        enabled: 1
+        enabled: 0
       eslint:
         path: 'npm:///eslint#7.1.0'
         autoExporting: 0
@@ -1444,245 +1438,5 @@ module:
         hash: af609a1e9a801806bc74a473540b3472
         size: 1703
       ../.im.will.yml:
-        hash: e291976046cbe36e75873a6b4c84869b
+        hash: f4627da3d323c2594583f08aeaf718f8
         size: 4688
-  ../.module/wTools:
-    about:
-      name: wTools
-      org: noorg
-      enabled: 1
-    path:
-      out:
-        path: .
-      module.willfiles:
-        criterion:
-          predefined: 1
-        path: ../wTools.will.yml
-      module.original.willfiles:
-        criterion:
-          predefined: 1
-        path: ../wTools.will.yml
-      module.peer.willfiles:
-        criterion:
-          predefined: 1
-        path: wTools.out.will.yml
-      module.peer.in:
-        criterion:
-          predefined: 1
-        path: .
-      module.common:
-        criterion:
-          predefined: 1
-        path: .
-      download:
-        criterion:
-          predefined: 1
-        path: .
-      in:
-        path: wTools
-    submodule: {}
-    reflector:
-      files:
-        src:
-          filePath:
-            'path::in': ''
-          maskAll:
-            includeAny:
-              - ./proto/dwtools/abase/l0
-              - ./proto/dwtools/abase/l1
-              - ./proto/dwtools/abase/l2
-              - ./proto/dwtools/abase/Layer0.s
-              - ./proto/dwtools/abase/Layer1.s
-              - ./proto/dwtools/abase/Layer2.s
-    step:
-      export:
-        opts:
-          export: 'reflector::files'
-          tar: 0
-        inherit:
-          - module.export
-      files:
-        opts:
-          filePath: 'reflector::files'
-        inherit:
-          - files.reflect
-    build:
-      export:
-        steps: 'step::export'
-        criterion:
-          default: 1
-          export: 1
-    consistency:
-      ../.module/wTools.will.yml: *ref_6
-      ../.module/wTools/wTools.out.will.yml: *ref_7
-  ../.module/wTools/wTools.out:
-    about:
-      name: wTools
-      org: noorg
-      enabled: 1
-    path:
-      module.willfiles:
-        criterion:
-          predefined: 1
-        path: wTools.out.will.yml
-      module.common:
-        criterion:
-          predefined: 1
-        path: wTools.out
-      out:
-        path: .
-      module.original.willfiles:
-        criterion:
-          predefined: 1
-        path: ../wTools.will.yml
-      module.peer.willfiles:
-        criterion:
-          predefined: 1
-        path: ../wTools.will.yml
-      module.peer.in:
-        criterion:
-          predefined: 1
-        path: .
-      download:
-        criterion:
-          predefined: 1
-        path: .
-      in:
-        path: .
-      exported.dir.export:
-        criterion:
-          generated: 1
-          default: 1
-          export: 1
-        path: .
-      exported.files.export:
-        criterion:
-          generated: 1
-          default: 1
-          export: 1
-        path:
-          - proto/dwtools/abase/Layer0.s
-          - proto/dwtools/abase/Layer1.s
-          - proto/dwtools/abase/Layer2.s
-          - proto/dwtools/abase/l0
-          - proto/dwtools/abase/l0/aPredefined.s
-          - proto/dwtools/abase/l0/aSetup.s
-          - proto/dwtools/abase/l0/bPremature.s
-          - proto/dwtools/abase/l0/fBool.s
-          - proto/dwtools/abase/l0/fChecker.s
-          - proto/dwtools/abase/l0/fEntity.s
-          - proto/dwtools/abase/l0/fErr.s
-          - proto/dwtools/abase/l0/fLong.s
-          - proto/dwtools/abase/l0/fMap.s
-          - proto/dwtools/abase/l0/fNumber.s
-          - proto/dwtools/abase/l0/fRange.s
-          - proto/dwtools/abase/l0/fRegexp.s
-          - proto/dwtools/abase/l0/fRoutine.s
-          - proto/dwtools/abase/l0/fString.s
-          - proto/dwtools/abase/l0/fTime.s
-          - proto/dwtools/abase/l0/iArrayDescriptor.s
-          - proto/dwtools/abase/l0/iCompose.s
-          - proto/dwtools/abase/l0/iField.s
-          - proto/dwtools/abase/l1
-          - proto/dwtools/abase/l1/cErr.s
-          - proto/dwtools/abase/l1/gBool.s
-          - proto/dwtools/abase/l1/gEntity.s
-          - proto/dwtools/abase/l1/gLong.s
-          - proto/dwtools/abase/l1/gMap.s
-          - proto/dwtools/abase/l1/gNumber.s
-          - proto/dwtools/abase/l1/gRange.s
-          - proto/dwtools/abase/l1/gRegexp.s
-          - proto/dwtools/abase/l1/gRoutine.s
-          - proto/dwtools/abase/l1/gString.s
-          - proto/dwtools/abase/l1/gTime.s
-          - proto/dwtools/abase/l1/rFundamental.s
-          - proto/dwtools/abase/l1/zSetup.s
-          - proto/dwtools/abase/l2
-          - proto/dwtools/abase/l2/IncludeTools.s
-          - proto/dwtools/abase/l2/ModulesRegistry.s
-          - proto/dwtools/abase/l2/NameTools.s
-          - proto/dwtools/abase/l2/StringTools.s
-    submodule: {}
-    reflector:
-      files:
-        src:
-          filePath:
-            'path::in': ''
-          maskAll:
-            includeAny:
-              - ./proto/dwtools/abase/l0
-              - ./proto/dwtools/abase/l1
-              - ./proto/dwtools/abase/l2
-              - ./proto/dwtools/abase/Layer0.s
-              - ./proto/dwtools/abase/Layer1.s
-              - ./proto/dwtools/abase/Layer2.s
-      exported.export:
-        src:
-          filePath:
-            .: ''
-          prefixPath: .
-          maskAll:
-            includeAny:
-              - !<tag:yaml.org,2002:js/regexp> /\.\/proto\/dwtools\/abase\/l0/
-              - !<tag:yaml.org,2002:js/regexp> /\.\/proto\/dwtools\/abase\/l1/
-              - !<tag:yaml.org,2002:js/regexp> /\.\/proto\/dwtools\/abase\/l2/
-              - !<tag:yaml.org,2002:js/regexp> /\.\/proto\/dwtools\/abase\/Layer0\.s/
-              - !<tag:yaml.org,2002:js/regexp> /\.\/proto\/dwtools\/abase\/Layer1\.s/
-              - !<tag:yaml.org,2002:js/regexp> /\.\/proto\/dwtools\/abase\/Layer2\.s/
-        mandatory: 1
-        dstRewritingOnlyPreserving: 1
-        linking: hardLinkMaybe
-        criterion:
-          generated: 1
-          default: 1
-          export: 1
-      exported.files.export:
-        src:
-          filePath:
-            'path::exported.files.export': ''
-          basePath: .
-          prefixPath: 'path::exported.dir.export'
-          recursive: 0
-        recursive: 0
-        criterion:
-          generated: 1
-          default: 1
-          export: 1
-    step:
-      export:
-        opts:
-          export: 'reflector::files'
-          tar: 0
-        inherit:
-          - module.export
-      files:
-        opts:
-          filePath: 'reflector::files'
-        inherit:
-          - files.reflect
-    build:
-      export:
-        steps: 'step::export'
-        criterion:
-          default: 1
-          export: 1
-    exported:
-      export:
-        version: 0.0.0
-        recursive: 0
-        withIntegrated: 2
-        tar: 0
-        exportedReflector: 'reflector::exported.export'
-        exportedFilesReflector: 'reflector::exported.files.export'
-        exportedDirPath: 'path::exported.dir.export'
-        exportedFilesPath: 'path::exported.files.export'
-        criterion:
-          default: 1
-          export: 1
-    consistency:
-      ../.module/wTools/wTools.out.will.yml:
-        hash: ef587e456e157ae5ff6cc059cb8b00a4
-        size: 6835
-      ../.module/wTools.will.yml:
-        hash: 37a17317399d4996e880f991273c128f
-        size: 520
