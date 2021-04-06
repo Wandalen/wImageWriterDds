@@ -2,16 +2,19 @@ format: outwillfile-2.0
 root:
   - wImageWriterDds.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wImageWriterDds.out.will.yml: &ref_0
+    hash: 6b009181e5a7d0521b5e10a83ee18f2c
+    size: 44477
+  ../.ex.will.yml: &ref_1
     hash: 42c869ff014ea522f234c0ee86ee4fba
     size: 1703
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: e291976046cbe36e75873a6b4c84869b
     size: 4688
-  ../.module/wTools.will.yml: &ref_6
+  ../.module/wTools.will.yml: &ref_3
     hash: 37a17317399d4996e880f991273c128f
     size: 520
-  ../.module/wTools/wTools.out.will.yml: &ref_7
+  ../.module/wTools/wTools.out.will.yml: &ref_4
     hash: ef587e456e157ae5ff6cc059cb8b00a4
     size: 6835
 module:
@@ -22,19 +25,19 @@ module:
       description: ___
       enabled: 0
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wimagewriterdds
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -685,6 +688,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: 'reflector::exported.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: 'reflector::exported.files.proto.export'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -773,8 +794,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wImageWriterDds.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wImageWriterDds
@@ -782,13 +804,21 @@ module:
       description: ___
       enabled: 0
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 10.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - tools
+        - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wimagewriterdds
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1446,14 +1476,15 @@ module:
       ../.im.will.yml:
         hash: e291976046cbe36e75873a6b4c84869b
         size: 4688
+      wImageWriterDds.out.will.yml:
+        hash: 6b009181e5a7d0521b5e10a83ee18f2c
+        size: 44477
   ../.module/wTools:
     about:
       name: wTools
       org: noorg
       enabled: 1
     path:
-      out:
-        path: .
       module.willfiles:
         criterion:
           predefined: 1
@@ -1473,6 +1504,8 @@ module:
       module.common:
         criterion:
           predefined: 1
+        path: .
+      out:
         path: .
       download:
         criterion:
@@ -1513,8 +1546,8 @@ module:
           default: 1
           export: 1
     consistency:
-      ../.module/wTools.will.yml: *ref_6
-      ../.module/wTools/wTools.out.will.yml: *ref_7
+      ../.module/wTools.will.yml: *ref_3
+      ../.module/wTools/wTools.out.will.yml: *ref_4
   ../.module/wTools/wTools.out:
     about:
       name: wTools
@@ -1618,8 +1651,6 @@ module:
               - ./proto/dwtools/abase/Layer2.s
       exported.export:
         src:
-          filePath:
-            .: ''
           prefixPath: .
           maskAll:
             includeAny:
@@ -1660,6 +1691,24 @@ module:
           filePath: 'reflector::files'
         inherit:
           - files.reflect
+      exported.export:
+        opts:
+          filePath: 'reflector::exported.export'
+        criterion:
+          generated: 1
+          default: 1
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.export:
+        opts:
+          filePath: 'reflector::exported.files.export'
+        criterion:
+          generated: 1
+          default: 1
+          export: 1
+        inherit:
+          - files.reflect
     build:
       export:
         steps: 'step::export'
@@ -1680,9 +1729,5 @@ module:
           default: 1
           export: 1
     consistency:
-      ../.module/wTools/wTools.out.will.yml:
-        hash: ef587e456e157ae5ff6cc059cb8b00a4
-        size: 6835
-      ../.module/wTools.will.yml:
-        hash: 37a17317399d4996e880f991273c128f
-        size: 520
+      ../.module/wTools/wTools.out.will.yml: *ref_4
+      ../.module/wTools.will.yml: *ref_3
